@@ -54,7 +54,6 @@ void Dialog1::on_pushButton_clicked()
     double tiempos[tam];
     double sumaTiempos = 0;
     double media = 0;
-    QRgb c;
 
     //hacemos un bucle que hace los 5 tiempos
     for(int bu = 0; bu < tam; bu++){
@@ -62,13 +61,15 @@ void Dialog1::on_pushButton_clicked()
         //iniciamos el tiempo
         inicio = clock();
 
+        QPixmap pixMap;
+        original = pixMap.toImage();
+
         //Modificamos el color
         for(int i = 0; i < original.width(); i++){  //ancho de la imagen
             for(int j = 0; j < original.height(); j++){ //alto de la imagen
-                c = original.pixel(i,j);
-                int rojo = qRed(c);//cambiamos a rojo
-                QRgb value = qRgb(rojo, rojo, rojo);
-                modificada.setPixel(i, j, value);
+                QRgb rgb = original.pixel(i, j);
+                QRgb nuevoValorRgb = qRgb(qRed(rgb), 0, 0);
+                original.setPixel(i, j, nuevoValorRgb);
             }
         }
         QPixmap img = QPixmap::fromImage(modificada);
