@@ -17,6 +17,21 @@ Dialog::~Dialog()
     delete ui;
 }
 
+//Seleccionamos la imagen a modificar
+QString Dialog::obtenerRuta()
+{
+    rutaOrigen = QFileDialog::getOpenFileName(this, tr("Abrir"), "nombre",tr("TextFiles(*.txt)"));
+   // documento = fopen(rutaOrigen, "rt");
+
+
+    return rutaOrigen;
+}
+
+//cargamos la ruta
+void Dialog::on_pushButton_2_clicked()
+{
+        QString ruta = obtenerRuta();
+}
 void Dialog::on_pushButton_clicked()
 {
     clock_t t_inicio, t_fin;
@@ -31,7 +46,7 @@ void Dialog::on_pushButton_clicked()
     for(i=0;i<tam;i++)
     {
         t_inicio=clock();
-        FILE* documento=fopen("C/Users/sdels/OneDrive/Escritorio/bancoDePruebasFinal/bancoDePruebasFinal-master/ARCHIVOS/Salida.txt", "rt");
+       // FILE* documento=fopen("C/Users/sdels/OneDrive/Escritorio/bancoDePruebasFinal/bancoDePruebasFinal-master/ARCHIVOS/Salida.txt", "rt");
         for(j=0;j<NUM_MAX;j++)
         {
             long num;
@@ -68,9 +83,9 @@ void Dialog::on_pushButton_clicked()
     }
 
     ui->lineEdit_3->setText(QString::number(tiempos[0])+" segundos.");
-    ui->lineEdit_4->setText(QString::number(tiempos[1])+" segundos.");
-    ui->lineEdit_5->setText(QString::number(tiempos[2])+" segundos.");
-    ui->lineEdit_6->setText(QString::number(tiempos[3])+" segundos.");
-    ui->lineEdit_7->setText(QString::number(tiempos[4])+" segundos.");
+    ui->lineEdit_4->setText(QString::number(tiempos[0])+" segundos.");
+    ui->lineEdit_5->setText(QString::number(tiempos[0])+" segundos.");
+    ui->lineEdit_6->setText(QString::number(tiempos[0])+" segundos.");
+    ui->lineEdit_7->setText(QString::number(tiempos[0])+" segundos.");
     ui->lineEdit_8->setText(QString::number(media)+" segundos.");
 }
