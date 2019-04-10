@@ -88,7 +88,7 @@ void Dialog1::on_pushButton_clicked()
         msgBox.setDefaultButton(QMessageBox::Save);
        int elegido = msgBox.exec();
         if (elegido == QMessageBox::Save) {
-             modificada.save("/home/tania/Escritorio/bancoDePruebasFinal-master/ARCHIVOS/modificada.jpg","jpg",-1);
+             modificada.save("/home/delsi/Descargas/bancoDePruebasFinal-master/ARCHIVOS/modificada.jpg","jpg",-1);
         }
 }
 
